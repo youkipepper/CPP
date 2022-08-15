@@ -28,8 +28,10 @@
 
 # Executables
 *.exe
+
 *.out
 *.app
 
 /.vscode
 *.dSYM
+/.DS_Store
