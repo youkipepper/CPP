@@ -31,6 +31,7 @@ void test01()
     else
     {
         cout << "s1 不为空" << endl;
+        cout << "s1的大小为:" << s1.size() << endl;
     }
 }
 
