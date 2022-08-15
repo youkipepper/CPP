@@ -1,0 +1,20 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/*.dSYM": true,
+        "**/*.out": true,
+    },
+    "files.associations": {
+        "iosfwd": "cpp",
+        "string": "cpp",
+        "ostream": "cpp",
+        "iostream": "cpp",
+        "stack": "cpp"
+    },
+
+}
