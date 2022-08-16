@@ -33,6 +33,21 @@ void test01()
         cout << "s1 不为空" << endl;
         cout << "s1的大小为:" << s1.size() << endl;
     }
+
+    set<int> s2;
+    s2.insert(100);
+    s2.insert(300);
+    s2.insert(200);
+    s2.insert(400);
+
+    cout << "交换前: " << endl;
+    printSet(s1);
+    printSet(s2);
+
+    cout << "交换后: " << endl;
+    s1.swap(s2);
+    printSet(s1);
+    printSet(s2);
 }
 
 int main()
