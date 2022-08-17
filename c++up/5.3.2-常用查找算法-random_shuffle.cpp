@@ -20,7 +20,8 @@ void test01()
         v.push_back(i);
     }
 
-    random_shuffle(v.begin(), v.end());
+    // random_shuffle(v.begin(), v.end());
+    //bug xcode中没有此函数
 
     for_each(v.begin(), v.end(), myPrint);
 }
