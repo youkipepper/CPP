@@ -9,12 +9,12 @@ using namespace cv;
 
 int main (){
 
-Mat img = imread("/Users/youkipepper/Desktop/Cpp/CV/D6218BB03F8D3AFDE5037E5CE0DF09D6.jpg");
+Mat img = imread("/Users/youkipepper/Desktop/Cpp/CV/test/D6218BB03F8D3AFDE5037E5CE0DF09D6.jpg");
 if(!img.data) {
     cout<<"couldn't load the image";
     return -1;
 }
-else{
+else{ 
     cout<<"loaded the image";
     imshow("img",img);
 } 
