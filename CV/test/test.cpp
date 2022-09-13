@@ -1,29 +1,15 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include "opencv2/opencv.hpp"
-#include "opencv2/highgui.hpp"
+#include<opencv2/opencv.hpp>
+#include<iostream>
 
-using namespace std;
 using namespace cv;
+using namespace std;
 
-int main (){
-
-Mat img = imread("/Users/youkipepper/Desktop/Cpp/CV/test/D6218BB03F8D3AFDE5037E5CE0DF09D6.jpg");
-if(!img.data) {
-    cout<<"couldn't load the image";
-    return -1;
-}
-else{ 
-    cout<<"loaded the image";
-    imshow("img",img);
-} 
-
-while(true)
+int main(int argc,char** argv)
 {
-    int c = waitKey(20);
-    if(27==(char) c)
-    break;
-}
+    Mat src = imread("test.jpg");
+    imshow("input",src);
+    waitKey(0);
+    destroyAllWindows();
+
     return 0;
-}       
+}
