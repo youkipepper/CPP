@@ -5,19 +5,26 @@
 using namespace cv;
 using namespace std;
 
-int main(int argc, char **argv)
+int main()
 {
-    Mat src = imread("test.jpg");
+    Mat src = imread("test.jpg"); // R, G, R
     if (src.empty())
     {
         printf("could not load image...\n");
         return -1;
     }
     // namedWindow("输入窗口",WINDOW_FREERATIO);
-    // imshow("input", src);
+    imshow("input", src);
 
     QuickDemo qd;
-    qd.colorSpace_Demo(src);
+
+    // qd.colorSpace_Demo(src);
+
+    // qd.mat_creation_demo();
+
+    // qd.pixel_visit_demo(src);
+
+    qd.operators_demo(src);
 
     waitKey(0);
     destroyAllWindows();
