@@ -3,6 +3,10 @@
 #include <opencv2/opencv.hpp>
 
 using namespace cv;
+using namespace std;
+
+// Mat src, dst, m;
+// int lightness = 50;
 
 class QuickDemo
 {
@@ -117,5 +121,74 @@ public:
         divide(image, m, dst); //可以改变图像的亮度
 
         imshow("加法操作", dst);
+    }
+
+    /*
+    static void on_track(int b, void *userdate)
+    {
+        m = Scalar(lightness, lightness, lightness);
+        subtract(src, m, dst);
+        imshow("亮度调整", dst);
+    }
+
+    void tracking_bar_demo(Mat &image)
+    {
+        namedWindow("亮度调整", WINDOW_AUTOSIZE);
+        dst = Mat::zeros(image.size(), image.type());
+        m = Mat::zeros(image.size(), image.type());
+        src = image;
+        int max_value = 100;
+        createTrackbar("Value", "亮度调整", &lightness, 100, on_track); // creaeTrackbar("trackbar_name", "window_name", &value_wanna_change, max_value(from zero))
+        on_track(50, 0);
+    }
+    */
+
+    static void on_lightness(int b, void *userdata)
+    {
+        Mat image = *((Mat *)userdata);
+        Mat dst = Mat::zeros(image.size(), image.type());
+        Mat m = Mat::zeros(image.size(), image.type());
+        addWeighted(image, 1.0, m, 0, b, dst);
+    }
+
+    static void on_track(int b, void *userdata)
+    {
+        Mat image = *((Mat *)userdata);
+        Mat dst = Mat::zeros(image.size(), image.type());
+        Mat m = Mat::zeros(image.size(), image.type());
+        m = Scalar(b, b, b);
+        addWeighted(image, 1.0, m, 1.0, 0, dst);
+        imshow("亮度调整与对比度", dst);
+    }
+
+    static void on_contrast(int b, void *userdata)
+    {
+        Mat image = *((Mat *)userdata);
+        Mat dst = Mat::zeros(image.size(), image.type());
+        Mat m = Mat::zeros(image.size(), image.type());
+        double contrast = b / 200.0;
+        addWeighted(image, 1.0, m, 0, 0, dst);
+        imshow("亮度调整与对比度", dst);
+    }
+
+    void tracking_bar_demo(Mat &image)
+    {
+        namedWindow("亮度与对比度调整", WINDOW_AUTOSIZE);
+        int lightness = 50;
+        int max_value = 100;
+        int contrast_value = 1.2;
+        createTrackbar("Value Bar", "亮度调整", &lightness, max_value, on_track, (void *)(&image));
+        createTrackbar("Contrast Bar", "亮度与对比度调整", &contrast_value, 200, on_track, (void *)(&image));
+        on_lightness(50, &image);
+    }
+
+    void key_demo(Mat &image)
+    {
+        Mat dst;
+        while (true)
+        {
+            int c = waitKey(1000);
+            cout << c << endl;
+        }
     }
 };

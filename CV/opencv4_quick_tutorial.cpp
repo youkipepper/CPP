@@ -24,7 +24,11 @@ int main()
 
     // qd.pixel_visit_demo(src);
 
-    qd.operators_demo(src);
+    // qd.operators_demo(src);
+
+    // qd.tracking_bar_demo(src);
+
+    qd.key_demo(src);
 
     waitKey(0);
     destroyAllWindows();
