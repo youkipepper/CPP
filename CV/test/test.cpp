@@ -1,15 +1,17 @@
-#include<opencv2/opencv.hpp>
-#include<iostream>
+#include <iostream>
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui.hpp>
+#include <opencv2/opencv.hpp>
 
-using namespace cv;
 using namespace std;
+using namespace cv;
 
-int main(int argc,char** argv)
+int main()
 {
-    Mat src = imread("test.jpg");
-    imshow("input",src);
-    waitKey(0);
-    destroyAllWindows();
+  Mat img = imread("/home/parallels/Desktop/Parallels Shared Folders/Home/Desktop/Code/Cpp/CV/test/test.jpg");
+  imshow("test", img);
 
-    return 0;
+  waitKey(0);
+
+  return 0;
 }
