@@ -8,7 +8,7 @@ using namespace cv;
 
 int main()
 {
-  Mat img = imread("/home/parallels/Desktop/Parallels Shared Folders/Home/Desktop/Code/Cpp/CV/test/test.jpg");
+  Mat img = imread("./test.jpg");
   imshow("test", img);
 
   waitKey(0);
